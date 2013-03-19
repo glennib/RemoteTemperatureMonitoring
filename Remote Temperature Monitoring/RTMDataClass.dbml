@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dbRTM" Class="RTMDataClassDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\SQLEXPRESS;AttachDbFilename=|DataDirectory|\dbRTM.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True" SettingsObjectName="Remote_Temperature_Monitoring.Properties.Settings" SettingsPropertyName="dbRTMConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.PhoneSubscribers" Member="PhoneSubscribers">
+    <Type Name="PhoneSubscriber">
+      <Column Name="Number" Type="System.String" DbType="NVarChar(30) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EmailSubscribers" Member="EmailSubscribers">
+    <Type Name="EmailSubscriber">
+      <Column Name="Email" Type="System.String" DbType="NVarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TemperatureStatusEvents" Member="TemperatureStatusEvents">
+    <Type Name="TemperatureStatusEvent">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TimeStamp" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TemperatureStatus" Type="System.String" DbType="NVarChar(3)" CanBeNull="true" />
+      <Column Name="Limit" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TemperatureMeasurements" Member="TemperatureMeasurements">
+    <Type Name="TemperatureMeasurement">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TimeStamp" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Temperature" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>
